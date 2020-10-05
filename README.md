@@ -9,9 +9,9 @@ git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.d
 ~/.emacs.d/bin/doom sync
 
 # .doom.d installation
-https://github.com/akashrpo/.doom.d.git
+git clone https://github.com/akashrpo/.doom.d.git
 #                 or
-git@github.com:akashrpo/.doom.d.git
+git clone git@github.com:akashrpo/.doom.d.git
 
 ~/.emacs.d/bin/doom sync
 ```
