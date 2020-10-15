@@ -33,8 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
+;; (setq display-line-numbers-type t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -57,7 +56,7 @@
 ;; customize config
 ;;
 
-(add-hook 'find-file-hook 'rtags-start-process-maybe)	;; autostart rdm service when emacs starts
+(global-display-line-numbers-mode t)			;; toggle display-line-numbers mode in all buffers
 
 ;; autocomplete feature
 (use-package auto-complete
@@ -68,15 +67,24 @@
 (global-auto-complete-mode t)
 ))
 
-;; mouse
+;; enable mouse inside emacs
 (xterm-mouse-mode 1)
 
+;; use tab-to-tab-stop for using default tab functionality
+(global-set-key (kbd "TAB") 'tab-to-tab-stop)		;; Insert spaces or tabs to next defined tab-stop column
 
+(setq buffer-undo-list nil) ; discard undo history
+
+
+;;
 ;; helm
+;;
 (require 'helm)
+
 (global-set-key (kbd "C-M-f") 'helm-do-grep-ag)		;; search for a string in all the files from the given location/path
 
 
+;;
 ;; F1
 ;; browse helm-buffers-list
 (global-set-key (kbd "<f1>") nil)
@@ -88,9 +96,12 @@
 )
 
 
+;;
 ;; F2
 ;; helm-rtags
-(global-set-key (kbd "<f2>") nil)
+(add-hook 'find-file-hook 'rtags-start-process-maybe)	;; autostart rdm service when emacs starts
+
+(global-set-key (kbd "<f2>") nil)			;; unbind <f2>
 
 ;; ensure that we use only rtags checking
 ;; https://github.com/Andersbakken/rtags#optional-1
@@ -129,25 +140,26 @@
   (add-hook 'c-mode-common-hook #'setup-flycheck-rtags))
 
 
+;;
 ;; F4
 ;; helm-find-files, helm-buffers-list etc.
 (global-set-key (kbd "<f4>") nil)
 (use-package helm
     :bind(
-	 ("<f4>d" . helm-find-files)			;; useful for jumping in a particular directory location/path
-	 ("<f4>r" . helm-recentf)			;; show recent opened files
-	 ("<f4>f" . helm-find)				;; search for a file names in the entire given file location
+	 ("<f4>f" . helm-for-files)				;; search for a file names in the entire given file location
 	 ("<f4>b" . helm-buffers-list)			;; displays all the open buffers/files
 	 )
 )
 
 
+;;
 ;; F5
 ;; helm-swoop
 (helm-autoresize-mode t) 				;; autoresize the pane acc. to the swoop result
 (global-set-key (kbd "<f5>") 'helm-swoop)		;; search for a word/string in the entire file
 
 
+;;
 ;; F6
 ;; eshell
 (defun eshell-vsplit ()
@@ -167,6 +179,7 @@
 )
 
 
+;;
 ;; F7
 ;; helm-semantic
 (semantic-mode 1) 					;; turnon semantic mode for helm-semantic
