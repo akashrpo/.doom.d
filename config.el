@@ -53,7 +53,7 @@
 ;; they are implemented.
 
 ;;
-;; customize config
+;; custom config
 ;;
 
 (global-display-line-numbers-mode t)			;; toggle display-line-numbers mode in all buffers
@@ -70,18 +70,15 @@
 ;; enable mouse inside emacs
 (xterm-mouse-mode 1)
 
-;; use tab-to-tab-stop for using default tab functionality
+;; for using default tab functionality
 (global-set-key (kbd "TAB") 'tab-to-tab-stop)		;; Insert spaces or tabs to next defined tab-stop column
-
-(setq buffer-undo-list nil) ; discard undo history
 
 
 ;;
 ;; helm
 ;;
 (require 'helm)
-
-(global-set-key (kbd "C-M-f") 'helm-do-grep-ag)		;; search for a string in all the files from the given location/path
+(global-set-key (kbd "C-M-f") 'helm-do-grep-ag)         ;; search for a string in all the files from the given location/path
 
 
 ;;
@@ -146,7 +143,7 @@
 (global-set-key (kbd "<f4>") nil)
 (use-package helm
     :bind(
-	 ("<f4>f" . helm-for-files)				;; search for a file names in the entire given file location
+	 ("<f4>f" . helm-for-files)			;; search for a file names in the entire given file location
 	 ("<f4>b" . helm-buffers-list)			;; displays all the open buffers/files
 	 )
 )
@@ -155,7 +152,7 @@
 ;;
 ;; F5
 ;; helm-swoop
-(helm-autoresize-mode t) 				;; autoresize the pane acc. to the swoop result
+(helm-autoresize-mode t)				;; autoresize the pane acc. to the swoop result
 (global-set-key (kbd "<f5>") 'helm-swoop)		;; search for a word/string in the entire file
 
 
@@ -182,7 +179,7 @@
 ;;
 ;; F7
 ;; helm-semantic
-(semantic-mode 1) 					;; turnon semantic mode for helm-semantic
+(semantic-mode 1)					;; turnon semantic mode for helm-semantic
 (global-set-key (kbd "<f7>") 'helm-semantic)		;; displays all the semantics or headers and functions of a file
 
 
