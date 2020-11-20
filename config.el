@@ -56,7 +56,7 @@
 ;; custom config
 ;;
 
-(global-display-line-numbers-mode t)			;; toggle display-line-numbers mode in all buffers
+(global-display-line-numbers-mode t)                   ;; toggle display-line-numbers mode in all buffers
 
 ;; autocomplete feature
 (use-package auto-complete
@@ -71,14 +71,14 @@
 (xterm-mouse-mode 1)
 
 ;; for using default tab functionality
-(global-set-key (kbd "TAB") 'tab-to-tab-stop)		;; Insert spaces or tabs to next defined tab-stop column
+(global-set-key (kbd "TAB") 'tab-to-tab-stop)          ;; Insert spaces or tabs to next defined tab-stop column
 
 
 ;;
 ;; helm
 ;;
 (require 'helm)
-(global-set-key (kbd "C-M-f") 'helm-do-grep-ag)         ;; search for a string in all the files from the given location/path
+(global-set-key (kbd "C-M-f") 'helm-do-grep-ag)        ;; search for a string in all the files from the given location/path
 
 
 ;;
@@ -87,8 +87,8 @@
 (global-set-key (kbd "<f1>") nil)
 (use-package helm
     :bind(
-	 ("<f1>," . previous-buffer)			;; goto previous buffer
-	 ("<f1>." . next-buffer)			;; goto next buffer
+	 ("<f1>," . previous-buffer)                    ;; goto previous buffer
+	 ("<f1>." . next-buffer)                        ;; goto next buffer
 	 )
 )
 
@@ -96,9 +96,9 @@
 ;;
 ;; F2
 ;; helm-rtags
-(add-hook 'find-file-hook 'rtags-start-process-maybe)	;; autostart rdm service when emacs starts
+(add-hook 'find-file-hook 'rtags-start-process-maybe)   ;; autostart rdm service when emacs starts
 
-(global-set-key (kbd "<f2>") nil)			;; unbind <f2>
+(global-set-key (kbd "<f2>") nil)                       ;; unbind <f2>
 
 ;; ensure that we use only rtags checking
 ;; https://github.com/Andersbakken/rtags#optional-1
@@ -152,8 +152,8 @@
 ;;
 ;; F5
 ;; helm-swoop
-(helm-autoresize-mode t)				;; autoresize the pane acc. to the swoop result
-(global-set-key (kbd "<f5>") 'helm-swoop)		;; search for a word/string in the entire file
+(helm-autoresize-mode t)                                ;; autoresize the pane acc. to the swoop result
+(global-set-key (kbd "<f5>") 'helm-swoop)               ;; search for a word/string in the entire file
 
 
 ;;
@@ -168,10 +168,10 @@
 
 (use-package helm
     :bind(	
-	 ("<f6><f6>" . eshell-vsplit)			;; open eshell or emacs shell/terminal
-	 ("<f6>C"    . eshell-command)  		;; open eshell command prompt
-	 ("<f6>c"    . compile) 			;; compile
-	 ("<f6>e"    . compile-goto-error)		;; goto error
+	 ("<f6><f6>" . eshell-vsplit)                   ;; open eshell or emacs shell/terminal
+	 ("<f6>C"    . eshell-command)                  ;; open eshell command prompt
+	 ("<f6>c"    . compile)                         ;; compile
+	 ("<f6>e"    . compile-goto-error)              ;; goto error
 	 )
 )
 
@@ -179,7 +179,7 @@
 ;;
 ;; F7
 ;; helm-semantic
-(semantic-mode 1)					;; turnon semantic mode for helm-semantic
-(global-set-key (kbd "<f7>") 'helm-semantic)		;; displays all the semantics or headers and functions of a file
+(semantic-mode 1)                                       ;; turnon semantic mode for helm-semantic
+(global-set-key (kbd "<f7>") 'helm-semantic)            ;; displays all the semantics or headers and functions of a file
 
 
