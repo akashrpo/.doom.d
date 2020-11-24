@@ -9,9 +9,8 @@ git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.d
 ~/.emacs.d/bin/doom sync
 
 # get .doom.d config
-# HTTPS
 git clone https://github.com/akashrpo/.doom.d.git
-# SSH
+#                 or
 git clone git@github.com:akashrpo/.doom.d.git
 
 # sync doom config
